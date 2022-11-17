@@ -5,11 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp.Views.Windows" xmlns:viewmodels="clr-namespace:WpfApp.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Icon="/Resources/Img/beauty_logo.ico"
+        Title="Бархатные бровки" Height="450" Width="800">
     <Window.DataContext>
         <viewmodels:MainWindowViewModel></viewmodels:MainWindowViewModel>
     </Window.DataContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60px"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+            <Frame Grid.Row="1" Content="{Binding PageInFrame}">
+
+            </Frame>
+        <StackPanel Background="#e1e4ff" Orientation="Horizontal" Grid.Row="0">
+            <Image RenderOptions.BitmapScalingMode="Linear" Margin="5" Source="/Resources/Img/beauty_logo.png"></Image>
+            <TextBlock VerticalAlignment="Center" FontFamily="Tahoma" FontSize="30" FontWeight="Bold"  Foreground="#ff4a6d" >Бархатные бровки</TextBlock>
+        </StackPanel>
+        
         
     </Grid>
 </Window>
