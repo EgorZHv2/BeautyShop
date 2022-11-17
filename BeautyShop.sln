@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1B084102-742
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{E7285060-6BB4-489A-9D62-B4173412682C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{10D70B13-C97D-4F32-A11C-893CE43B5158}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{E7285060-6BB4-489A-9D62-B4173412682C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7285060-6BB4-489A-9D62-B4173412682C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7285060-6BB4-489A-9D62-B4173412682C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10D70B13-C97D-4F32-A11C-893CE43B5158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10D70B13-C97D-4F32-A11C-893CE43B5158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10D70B13-C97D-4F32-A11C-893CE43B5158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10D70B13-C97D-4F32-A11C-893CE43B5158}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E7285060-6BB4-489A-9D62-B4173412682C} = {1B084102-742D-4C8A-84FE-2AC7D31B62CD}
+		{10D70B13-C97D-4F32-A11C-893CE43B5158} = {1B084102-742D-4C8A-84FE-2AC7D31B62CD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {440C7B2B-2ADF-4C2A-9655-A6959CC8FD8A}

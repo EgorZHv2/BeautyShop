@@ -118,5 +118,11 @@
   <ItemGroup>
     <Resource Include="Resources\Img\beauty_logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{10d70b13-c97d-4f32-a11c-893ce43b5158}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
