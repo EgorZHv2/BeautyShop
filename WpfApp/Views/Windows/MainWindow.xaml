@@ -15,13 +15,23 @@
             <RowDefinition Height="60px"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-            <Frame Grid.Row="1" Content="{Binding PageInFrame}">
-
-            </Frame>
         <StackPanel Background="#e1e4ff" Orientation="Horizontal" Grid.Row="0">
             <Image RenderOptions.BitmapScalingMode="Linear" Margin="5" Source="/Resources/Img/beauty_logo.png"></Image>
             <TextBlock VerticalAlignment="Center" FontFamily="Tahoma" FontSize="30" FontWeight="Bold"  Foreground="#ff4a6d" >Бархатные бровки</TextBlock>
         </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <Button Style="{StaticResource ButtonStyle}">Просмотр услуг</Button>
+                <Button Style="{StaticResource ButtonStyle}" Command="{Binding AddService}">Добавление услуги</Button>
+                <Button Style="{StaticResource ButtonStyle}">Запись клиента на услугу</Button>
+                <Button Style="{StaticResource ButtonStyle}">Просмотр записей</Button>
+            </StackPanel>
+            <Frame  Content="{Binding PageInFrame}">
+
+            </Frame>
+        </StackPanel>
+            
+       
         
         
     </Grid>

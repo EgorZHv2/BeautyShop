@@ -10,10 +10,10 @@
     <Page.DataContext>
         <viewmodels:NavigationPageViewModel></viewmodels:NavigationPageViewModel>
     </Page.DataContext>
-    <Grid> 
-        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Grid>
-                <Grid.ColumnDefinitions>
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid>
+        <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
@@ -25,7 +25,8 @@
                     <Button Style="{StaticResource ButtonStyle}">Запись клиента на услугу</Button>
                     <Button Style="{StaticResource ButtonStyle}">Просмотр записей</Button>
                 </StackPanel>
-            </Grid>
-        </Grid>
+         </Grid>
+           
+        </StackPanel>
     </Grid>
 </Page>

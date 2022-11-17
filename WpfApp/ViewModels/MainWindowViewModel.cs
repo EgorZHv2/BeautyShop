@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
+using WpfApp.Commands;
 using WpfApp.ViewModels;
 using WpfApp.Views.Pages;
 
@@ -22,8 +24,18 @@ namespace WpfApp.ViewModels
         }
         public MainWindowViewModel()
         {
-            NavigationPage navigationPage = new NavigationPage();
-            PageInFrame = navigationPage;
+           
+        }
+        public ICommand AddService
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    AddServicePage pg = new AddServicePage();
+                    PageInFrame = pg;
+                });
+            }
         }
     }
 }

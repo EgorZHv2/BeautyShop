@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace WpfApp.Commands
 {
-    public class DelegateCommand
+    public class DelegateCommand : ICommand
     {
         private Action<object> execute;
         private Func<object, bool> canExecute;
