@@ -59,11 +59,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pages\AddClientToServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\AddServicePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\NavigationPage.xaml">
+    <Page Include="Views\Pages\OrdersListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ServicesListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -76,15 +84,25 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Models\ServicesListItemModel.cs" />
+    <Compile Include="ViewModels\AddClientToServicePageViewModel.cs" />
     <Compile Include="ViewModels\AddServicePageViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationPageViewModel.cs" />
+    <Compile Include="ViewModels\OrdersListPageViewModel.cs" />
+    <Compile Include="ViewModels\ServicesListPageViewModel.cs" />
+    <Compile Include="Views\Pages\AddClientToServicePage.xaml.cs">
+      <DependentUpon>AddClientToServicePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\AddServicePage.xaml.cs">
       <DependentUpon>AddServicePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\NavigationPage.xaml.cs">
-      <DependentUpon>NavigationPage.xaml</DependentUpon>
+    <Compile Include="Views\Pages\OrdersListPage.xaml.cs">
+      <DependentUpon>OrdersListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ServicesListPage.xaml.cs">
+      <DependentUpon>ServicesListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -117,9 +135,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Img\beauty_logo.ico" />
   </ItemGroup>

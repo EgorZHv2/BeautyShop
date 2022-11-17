@@ -1,0 +1,48 @@
+﻿<Page x:Class="WpfApp.Views.Pages.ServicesListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp.Views.Pages" xmlns:viewmodels="clr-namespace:WpfApp.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ServicesListPage">
+    <Page.DataContext>
+        <viewmodels:ServicesListPageViewModel></viewmodels:ServicesListPageViewModel>
+    </Page.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource PageTitle}" VerticalAlignment="Center" Grid.Column="1">Список услуг</TextBlock>
+        <ListBox HorizontalAlignment="Center" ItemsSource="{Binding Services}" Grid.Row="1" Grid.Column="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid MinWidth="300px">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Width="30px" Grid.Column="0" Source="/Resources/Img/beauty_logo.png"></Image>
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                            <TextBlock>Наименование услуги</TextBlock>
+                            <TextBlock>800 рублей за 30 минут</TextBlock>
+                            <TextBlock>Скидка 228%</TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <Button>Редактировать</Button>
+                                <Button>Удалить</Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>

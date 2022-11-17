@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp.Views.Windows" xmlns:viewmodels="clr-namespace:WpfApp.ViewModels"
         mc:Ignorable="d"
         Icon="/Resources/Img/beauty_logo.ico"
-        Title="Бархатные бровки" Height="450" Width="800">
+        Title="Бархатные бровки" Height="450" MinHeight="450" MinWidth="800" Width="800">
     <Window.DataContext>
         <viewmodels:MainWindowViewModel></viewmodels:MainWindowViewModel>
     </Window.DataContext>
@@ -19,20 +19,22 @@
             <Image RenderOptions.BitmapScalingMode="Linear" Margin="5" Source="/Resources/Img/beauty_logo.png"></Image>
             <TextBlock VerticalAlignment="Center" FontFamily="Tahoma" FontSize="30" FontWeight="Bold"  Foreground="#ff4a6d" >Бархатные бровки</TextBlock>
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <StackPanel Orientation="Vertical">
-                <Button Style="{StaticResource ButtonStyle}">Просмотр услуг</Button>
-                <Button Style="{StaticResource ButtonStyle}" Command="{Binding AddService}">Добавление услуги</Button>
-                <Button Style="{StaticResource ButtonStyle}">Запись клиента на услугу</Button>
-                <Button Style="{StaticResource ButtonStyle}">Просмотр записей</Button>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Orientation="Vertical">
+                <Button Style="{StaticResource ButtonStyle}" Command="{Binding GoToServicesListPage}">Просмотр услуг</Button>
+                <Button Style="{StaticResource ButtonStyle}" Command="{Binding GoToAddServicePage}">Добавление услуги</Button>
+                <Button Style="{StaticResource ButtonStyle}" Command="{Binding GoToAddClientToServicePage}">Запись клиента на услугу</Button>
+                <Button Style="{StaticResource ButtonStyle}" Command="{Binding GoToOrdersListPage}">Просмотр записей</Button>
             </StackPanel>
-            <Frame  Content="{Binding PageInFrame}">
+            <Frame NavigationUIVisibility="Hidden" Grid.Column="1" Content="{Binding PageInFrame}">
 
             </Frame>
-        </StackPanel>
+        </Grid>
             
-       
-        
         
     </Grid>
 </Window>

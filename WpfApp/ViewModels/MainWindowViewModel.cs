@@ -26,13 +26,46 @@ namespace WpfApp.ViewModels
         {
            
         }
-        public ICommand AddService
+        public ICommand GoToAddServicePage
         {
             get
             {
                 return new DelegateCommand((obj) =>
                 {
                     AddServicePage pg = new AddServicePage();
+                    PageInFrame = pg;
+                });
+            }
+        }
+        public ICommand GoToServicesListPage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                   ServicesListPage pg = new ServicesListPage();
+                    PageInFrame = pg;
+                });
+            }
+        }
+        public ICommand GoToAddClientToServicePage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    AddClientToServicePage pg = new AddClientToServicePage();
+                    PageInFrame = pg;
+                });
+            }
+        }
+        public ICommand GoToOrdersListPage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                   OrdersListPage pg = new OrdersListPage();
                     PageInFrame = pg;
                 });
             }
