@@ -24,7 +24,7 @@ namespace WpfApp.ViewModels
                 model.Id = s.ID;
 
                 model.Title = s.Title;
-                model.Cost = Math.Round(s.Cost, 2);
+                
                 model.Discount = s.Discount;
                 model.DurationInMinutes = s.DurationInSeconds / 60;
                 
@@ -42,14 +42,15 @@ namespace WpfApp.ViewModels
 
                 if (s.Discount == 0)
                 {
-                    model.DiscountVisibility = Visibility.Hidden;
-                    
+                    model.DiscountVisibility = Visibility.Collapsed;
+                    model.Cost = Math.Round(s.Cost, 2);
                 }
                 else
                 {
                     model.DiscountVisibility = Visibility.Visible;
-                    model.CostAftherDiscount = Math.Round(model.Cost * ((decimal)((100-(decimal)model.Discount)/100)),2);
-                   
+                    model.СrossedCost = Math.Round(s.Cost, 2);
+                    model.Cost = Math.Round(model.СrossedCost * ((decimal)((100 - (decimal)model.Discount) / 100)), 2);
+
                 }
                 list.Add(model);
                 

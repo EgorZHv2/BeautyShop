@@ -40,8 +40,8 @@
                             <StackPanel Margin="20,0,0,0" Grid.Column="1" Orientation="Vertical">
                                 <TextBlock Text="{Binding Title}"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Cost}"></TextBlock>
-                                    <TextBlock Margin="5,0,0,0" Visibility="{Binding DiscountVisibility}" Text="{Binding CostAftherDiscount}"></TextBlock>
+                                    <TextBlock Visibility="{Binding DiscountVisibility}" TextDecorations="Strikethrough" Text="{Binding СrossedCost}"></TextBlock>
+                                    <TextBlock Margin="5,0,0,0"  Text="{Binding Cost}"></TextBlock>
                                     <TextBlock Text=" рублей за "></TextBlock>
                                     <TextBlock Text="{Binding DurationInMinutes}"></TextBlock>
                                     <TextBlock Text=" минут"></TextBlock>
