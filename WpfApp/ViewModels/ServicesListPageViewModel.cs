@@ -42,7 +42,7 @@ namespace WpfApp.ViewModels
 
                 if (s.Discount == 0)
                 {
-                    model.DiscountVisibility = Visibility.Collapsed;
+                    model.DiscountVisibility = Visibility.Hidden;
                     model.Cost = Math.Round(s.Cost, 2);
                 }
                 else

@@ -32,7 +32,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate  TargetType="Button">
-                    <Border Cursor="Hand" Background="{TemplateBinding Background}" MinWidth="100" Height="40" CornerRadius="20" Margin="5">
+                    <Border Cursor="Hand" Background="{TemplateBinding Background}" MinWidth="100" Height="40" CornerRadius="10" Margin="5">
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
 
                         </ContentPresenter>
@@ -42,7 +42,7 @@
         </Setter>
         <Style.Triggers >
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#e1e4ff"></Setter>
+                <Setter Property="Background" Value="#ffffff"></Setter>
                 <Setter Property="Foreground" Value="#000000"></Setter>
             </Trigger>
 

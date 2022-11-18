@@ -3,11 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WpfApp.Views.Pages"
+      xmlns:local="clr-namespace:WpfApp.Views.Pages" xmlns:viewmodels="clr-namespace:WpfApp.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddServicePage">
-
+    <Page.DataContext>
+        <viewmodels:AddServicePageViewModel></viewmodels:AddServicePageViewModel>
+    </Page.DataContext>
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Style="{StaticResource PageTitle}">Добавление услуги</TextBlock>
@@ -19,25 +21,24 @@
                 <StackPanel Grid.Column="0" Margin="0 0 50 0">
                     <TextBlock Style="{StaticResource InputName}" Text="Название" />
                     <TextBlock Style="{StaticResource InputName}" Text="Цена" />
-                    <TextBlock Style="{StaticResource InputName}" Text="Продолжительность" />
+                    <TextBlock Style="{StaticResource InputName}" Text="Продолжительность в минутах" />
                     <TextBlock Style="{StaticResource InputName}" Text="Описание" />
                     <TextBlock Style="{StaticResource InputName}" Text="Скидка" />
                     <TextBlock Style="{StaticResource InputName}" Text="Главное изображение" />
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <TextBox Style="{StaticResource InputBox}"></TextBox>
-                    <TextBox Style="{StaticResource InputBox}"></TextBox>
-                    <TextBox Style="{StaticResource InputBox}"></TextBox>
-                    <TextBox Style="{StaticResource InputBox}"></TextBox>
-                    <TextBox Style="{StaticResource InputBox}"></TextBox>
-                    <TextBox Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox Text="{Binding Service.Title}" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox Text="{Binding Service.Cost}" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox  Text="{Binding Service.DurationInSeconds}" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox  Text="{Binding Service.Description}" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox  Text="{Binding Service.Discount}" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox  Text="{Binding Service.ImgPath}" Style="{StaticResource InputBox}"></TextBox>
                 </StackPanel>
             
         </Grid>
-            <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal">
-                <Button Style="{StaticResource NavButton}">Назад</Button>
-                <Button Style="{StaticResource NavButton}">Добавить</Button>
-            </StackPanel>
+            
+                <Button Command="{Binding CreateService}" Style="{StaticResource NavButton}">Добавить</Button>
+            
         </StackPanel>
     </Grid>
 </Page>

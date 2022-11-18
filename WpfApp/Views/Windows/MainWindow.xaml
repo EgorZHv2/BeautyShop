@@ -17,11 +17,11 @@
         </Grid.RowDefinitions>
         <StackPanel Background="#e1e4ff" Orientation="Horizontal" Grid.Row="0">
             <Image RenderOptions.BitmapScalingMode="Linear" Margin="5" Source="/Resources/Img/beauty_logo.png"></Image>
-            <TextBlock VerticalAlignment="Center" FontFamily="Tahoma" FontSize="30" FontWeight="Bold"  Foreground="#ff4a6d" >Бархатные бровки</TextBlock>
+            <TextBlock VerticalAlignment="Center" FontFamily="Tahoma" FontSize="20" FontWeight="Bold"  Foreground="#ff4a6d" >Бархатные бровки</TextBlock>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Right">
             <Button Command="{Binding GoToServicesListPage}" Style="{StaticResource ResourceKey=NavButton}">Услуги</Button>
-            <Button Visibility="Collapsed" Command="{Binding GoToAddServicePage}" Style="{StaticResource ResourceKey=NavButton}">Добавить услугу</Button>
+            <Button Command="{Binding GoToAddServicePage}" Style="{StaticResource ResourceKey=NavButton}">Добавить услугу</Button>
             <Button Command="{Binding GoToAddClientToServicePage}" Style="{StaticResource ResourceKey=NavButton}">Запись клиента</Button>
             <Button Command="{Binding GoToOrdersListPage}" Style="{StaticResource ResourceKey=NavButton}">Ближайшие записи</Button>
         </StackPanel>

@@ -94,6 +94,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Models\CreateServiceModel.cs" />
     <Compile Include="Models\ServicesListItemModel.cs" />
     <Compile Include="ViewModels\AddClientToServicePageViewModel.cs" />
     <Compile Include="ViewModels\AddServicePageViewModel.cs" />
