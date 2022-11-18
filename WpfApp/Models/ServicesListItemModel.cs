@@ -8,10 +8,12 @@ namespace WpfApp.Models
 {
     public class ServicesListItemModel
     {
+        public int Id { get; set; }
         public string ImgPath { get; set; }
         public string Title { get; set; }
-        public string Cost { get; set; }
-        public string DurationInMinutes { get; set; }
+        public decimal Cost { get; set; }
+        public Nullable<double> Discount { get; set; }
+        public int DurationInMinutes { get; set; }
 
     }
 }

@@ -12,12 +12,23 @@ namespace Infrastructure.Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core;
+    
     
     public partial class ApplicationDbContext : DbContext
     {
+        private static ApplicationDbContext _context;
         public ApplicationDbContext()
             : base("name=ApplicationDbContext")
         {
+        }
+        public static ApplicationDbContext GetContext()
+        {
+            if(_context == null)
+            {
+                _context = new ApplicationDbContext();
+            }
+            return _context;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

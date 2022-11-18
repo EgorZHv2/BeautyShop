@@ -19,21 +19,18 @@
             <Image RenderOptions.BitmapScalingMode="Linear" Margin="5" Source="/Resources/Img/beauty_logo.png"></Image>
             <TextBlock VerticalAlignment="Center" FontFamily="Tahoma" FontSize="30" FontWeight="Bold"  Foreground="#ff4a6d" >Бархатные бровки</TextBlock>
         </StackPanel>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" VerticalAlignment="Center" Orientation="Vertical">
-                <Button Style="{StaticResource ButtonStyle}" Command="{Binding GoToServicesListPage}">Просмотр услуг</Button>
-                <Button Style="{StaticResource ButtonStyle}" Command="{Binding GoToAddServicePage}">Добавление услуги</Button>
-                <Button Style="{StaticResource ButtonStyle}" Command="{Binding GoToAddClientToServicePage}">Запись клиента на услугу</Button>
-                <Button Style="{StaticResource ButtonStyle}" Command="{Binding GoToOrdersListPage}">Просмотр записей</Button>
-            </StackPanel>
-            <Frame NavigationUIVisibility="Hidden" Grid.Column="1" Content="{Binding PageInFrame}">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Right">
+            <Button Command="{Binding GoToServicesListPage}" Style="{StaticResource ResourceKey=NavButton}">Услуги</Button>
+            <Button Visibility="Collapsed" Command="{Binding GoToAddServicePage}" Style="{StaticResource ResourceKey=NavButton}">Добавить услугу</Button>
+            <Button Command="{Binding GoToAddClientToServicePage}" Style="{StaticResource ResourceKey=NavButton}">Запись клиента</Button>
+            <Button Command="{Binding GoToOrdersListPage}" Style="{StaticResource ResourceKey=NavButton}">Ближайшие записи</Button>
+        </StackPanel>
+
+
+        <Frame NavigationUIVisibility="Hidden" Grid.Row="1"  Content="{Binding PageInFrame}">
 
             </Frame>
-        </Grid>
+       
             
         
     </Grid>

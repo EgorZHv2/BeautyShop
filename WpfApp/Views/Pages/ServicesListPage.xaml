@@ -22,25 +22,43 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource PageTitle}" VerticalAlignment="Center" Grid.Column="1">Список услуг</TextBlock>
-        <ListBox HorizontalAlignment="Center" ItemsSource="{Binding Services}" Grid.Row="1" Grid.Column="1">
+        <ListBox  HorizontalAlignment="Stretch" ItemsSource="{Binding Services}" Grid.Row="1" Grid.Column="1">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid MinWidth="300px">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition Width="3*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Image Width="30px" Grid.Column="0" Source="/Resources/Img/beauty_logo.png"></Image>
-                        <StackPanel Grid.Column="1" Orientation="Vertical">
-                            <TextBlock>Наименование услуги</TextBlock>
-                            <TextBlock>800 рублей за 30 минут</TextBlock>
-                            <TextBlock>Скидка 228%</TextBlock>
-                            <StackPanel Orientation="Horizontal">
-                                <Button>Редактировать</Button>
-                                <Button>Удалить</Button>
+                    <Border BorderBrush="Black" CornerRadius="3" BorderThickness="1" HorizontalAlignment="Stretch" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Width="80px" Grid.Column="0" Source="{Binding ImgPath}"></Image>
+                            <StackPanel Margin="20,0,0,0" Grid.Column="1" Orientation="Vertical">
+                                <TextBlock Text="{Binding Title}"></TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Cost}"></TextBlock>
+                                    <TextBlock Text=" рублей за "></TextBlock>
+                                    <TextBlock Text="{Binding DurationInMinutes}"></TextBlock>
+                                    <TextBlock Text=" минут"></TextBlock>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Скидка: "></TextBlock>
+                                    <TextBlock Text="{Binding Discount}"></TextBlock>
+                                    <TextBlock Text="%"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button>Редактировать</Button>
+                                    <Button>Удалить</Button>
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>
-                    </Grid>
+                        </Grid>
+                    </Border>
+
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
