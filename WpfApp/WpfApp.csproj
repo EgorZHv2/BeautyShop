@@ -198,7 +198,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\ServiceImages\TextFile1.txt" />
+    <Resource Include="Resources\ServiceImages\88740a7b-a7db-4014-9e34-a2db9883accb.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

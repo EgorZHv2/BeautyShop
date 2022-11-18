@@ -27,8 +27,9 @@ namespace WpfApp.ViewModels
                 
                 model.Discount = s.Discount;
                 model.DurationInMinutes = s.DurationInSeconds / 60;
+
                 
-                if(File.Exists(Path.GetFullPath(Directory.GetCurrentDirectory() + "\\..\\..\\"+ "\\Resources\\ServiceImages\\" + s.MainImagePath)))
+                if (File.Exists(Path.GetFullPath(Directory.GetCurrentDirectory() + "\\..\\..\\"+ "\\Resources\\ServiceImages\\" + s.MainImagePath)))
                 {
                     model.ImgPath = "\\Resources\\ServiceImages\\" + s.MainImagePath;
 

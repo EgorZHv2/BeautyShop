@@ -1,6 +1,8 @@
 ﻿using Infrastructure.Data;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,23 +24,47 @@ namespace WpfApp.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        private string imgPath;
+        public string ImgPath
+        {
+            get { return imgPath; }
+            set { imgPath = value;
+            OnPropertyChanged();}
+        }
         public ICommand CreateService
         {
             get
             {
                 return new DelegateCommand((obj) =>
                 {
-                    ApplicationDbContext.GetContext().Service.Add(new Service()
+                   Service newservice =  new Service()
                     {
                         Cost = service.Cost,
                         Discount = service.Discount,
                         DurationInSeconds = service.DurationInSeconds*60,
                         ID = service.Id,
-                        MainImagePath = service.ImgPath,
                         Title = service.Title
-                    });
+                    };
+                    string filename = Guid.NewGuid().ToString() + Path.GetExtension(ImgPath);
+                   
+                    File.Copy(ImgPath, Path.GetFullPath(Directory.GetCurrentDirectory() + "\\..\\..\\" + "\\Resources\\ServiceImages\\" + filename));
+                    newservice.MainImagePath = filename;
+                    ApplicationDbContext.GetContext().Service.Add(newservice);
                     ApplicationDbContext.GetContext().SaveChanges();
+                });
+            }
+        }
+        public ICommand AddImage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    OpenFileDialog openFileDialog = new OpenFileDialog();
+                    openFileDialog.Filter = "Image Files(*.JPEP;*.JPG;*.PNG)|*.jpeg;*.jpg;*.png";
+                    openFileDialog.ShowDialog();
+                    ImgPath = openFileDialog.FileName;
+                    
                 });
             }
         }

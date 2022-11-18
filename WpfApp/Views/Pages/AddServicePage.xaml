@@ -25,6 +25,7 @@
                     <TextBlock Style="{StaticResource InputName}" Text="Описание" />
                     <TextBlock Style="{StaticResource InputName}" Text="Скидка" />
                     <TextBlock Style="{StaticResource InputName}" Text="Главное изображение" />
+                    
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <TextBox Text="{Binding Service.Title}" Style="{StaticResource InputBox}"></TextBox>
@@ -32,7 +33,8 @@
                     <TextBox  Text="{Binding Service.DurationInSeconds}" Style="{StaticResource InputBox}"></TextBox>
                     <TextBox  Text="{Binding Service.Description}" Style="{StaticResource InputBox}"></TextBox>
                     <TextBox  Text="{Binding Service.Discount}" Style="{StaticResource InputBox}"></TextBox>
-                    <TextBox  Text="{Binding Service.ImgPath}" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox  Text="{Binding ImgPath}" Style="{StaticResource InputBox}"></TextBox>
+                    <Button Style="{StaticResource ListButton}" Command="{Binding AddImage}">Выбрать изображение</Button>
                 </StackPanel>
             
         </Grid>
