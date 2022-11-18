@@ -1,9 +1,12 @@
 ﻿using Infrastructure.Data;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media;
 using WpfApp.Models;
 
 
@@ -17,18 +20,39 @@ namespace WpfApp.ViewModels
             List<ServicesListItemModel> list = new List<ServicesListItemModel>();
             foreach( Service s in ApplicationDbContext.GetContext().Service.ToList())
             {
-                
-                list.Add(new ServicesListItemModel
-                {
-                    Id = s.ID,
-                    Title = s.Title,
-                    Cost = Math.Round(s.Cost,2),
-                    Discount = s.Discount,
-                    DurationInMinutes = s.DurationInSeconds/60,
-                    ImgPath = "/Resources/ServiceImages/"+ s.MainImagePath
-                    
+                ServicesListItemModel model = new ServicesListItemModel();
+                model.Id = s.ID;
 
-                });
+                model.Title = s.Title;
+                model.Cost = Math.Round(s.Cost, 2);
+                model.Discount = s.Discount;
+                model.DurationInMinutes = s.DurationInSeconds / 60;
+                
+                if(File.Exists(Path.GetFullPath(Directory.GetCurrentDirectory() + "\\..\\..\\"+ "\\Resources\\ServiceImages\\" + s.MainImagePath)))
+                {
+                    model.ImgPath = "\\Resources\\ServiceImages\\" + s.MainImagePath;
+
+                }
+                else
+                {
+                    model.ImgPath = "\\Resources\\Img\\beauty_logo.png";
+                }
+              
+               
+
+                if (s.Discount == 0)
+                {
+                    model.DiscountVisibility = Visibility.Hidden;
+                    
+                }
+                else
+                {
+                    model.DiscountVisibility = Visibility.Visible;
+                    model.CostAftherDiscount = Math.Round(model.Cost * ((decimal)((100-(decimal)model.Discount)/100)),2);
+                   
+                }
+                list.Add(model);
+                
                 
             }
             Services = list;

@@ -36,24 +36,25 @@
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition Width="3*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Image Width="80px" Grid.Column="0" Source="{Binding ImgPath}"></Image>
+                            <Image  Width="80px" Grid.Column="0" Source="{Binding ImgPath}"></Image>
                             <StackPanel Margin="20,0,0,0" Grid.Column="1" Orientation="Vertical">
                                 <TextBlock Text="{Binding Title}"></TextBlock>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Cost}"></TextBlock>
+                                    <TextBlock Margin="5,0,0,0" Visibility="{Binding DiscountVisibility}" Text="{Binding CostAftherDiscount}"></TextBlock>
                                     <TextBlock Text=" рублей за "></TextBlock>
                                     <TextBlock Text="{Binding DurationInMinutes}"></TextBlock>
                                     <TextBlock Text=" минут"></TextBlock>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Скидка: "></TextBlock>
-                                    <TextBlock Text="{Binding Discount}"></TextBlock>
-                                    <TextBlock Text="%"></TextBlock>
+                                    <TextBlock Visibility="{Binding DiscountVisibility}" Text="Скидка: "></TextBlock>
+                                    <TextBlock Visibility="{Binding DiscountVisibility}" Text="{Binding Discount}"></TextBlock>
+                                    <TextBlock Visibility="{Binding DiscountVisibility}" Text="%"></TextBlock>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button>Редактировать</Button>
-                                    <Button>Удалить</Button>
+                                    <Button Style="{StaticResource ListButton}">Редактировать</Button>
+                                    <Button Style="{StaticResource ListButton}">Удалить</Button>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>

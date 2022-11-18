@@ -35,8 +35,8 @@
             
         </Grid>
             <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal">
-                <Button Style="{StaticResource ButtonStyle}">Назад</Button>
-                <Button Style="{StaticResource ButtonStyle}">Добавить</Button>
+                <Button Style="{StaticResource NavButton}">Назад</Button>
+                <Button Style="{StaticResource NavButton}">Добавить</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -4,11 +4,11 @@
         <Setter Property="Background" Value="#ff4a6d"></Setter>
         <Setter Property="Foreground" Value="#ffffff"></Setter>
         <Setter Property="FontFamily" Value="Tahoma"></Setter>
-        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontSize" Value="8"></Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate  TargetType="Button">
-                    <Border Cursor="Hand" Background="{TemplateBinding Background}" MinWidth="180" Height="40" CornerRadius="20" Margin="5">
+                    <Border Cursor="Hand" Background="{TemplateBinding Background}" MinWidth="60" Height="20" CornerRadius="5" Margin="5">
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
                             
                         </ContentPresenter>
