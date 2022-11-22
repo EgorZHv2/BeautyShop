@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp.ViewModels
+namespace WpfApp.Models
 {
-    internal class AddClientToServicePageViewModel
+    internal class AddClientToServiceModel
     {
     }
 }

@@ -21,7 +21,28 @@
             <RowDefinition Height="10*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Style="{StaticResource PageTitle}" VerticalAlignment="Center" Grid.Column="1">Список записей на услуги</TextBlock>
-
+        <TextBlock Style="{StaticResource PageTitle}" VerticalAlignment="Center" Grid.Column="1">Ближайшие записи</TextBlock>
+        <ListBox HorizontalAlignment="Center" ItemsSource="{Binding Orders}" Grid.Row="1" Grid.Column="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid MinWidth="600">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Orientation="Vertical">
+                            <TextBlock>Наименование услуги: <TextBlock Text="{Binding NameService}"></TextBlock></TextBlock>
+                            <TextBlock>Клиент: <TextBlock Text="{Binding ClientLastName}"></TextBlock> <TextBlock Text="{Binding ClientFirstName}"></TextBlock> <TextBlock Text="{Binding ClientPatronymic}"></TextBlock></TextBlock>
+                            <TextBlock>Почта: <TextBlock Text="{Binding Email}"></TextBlock></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock>Телефон: <TextBlock Text="{Binding Phone}"></TextBlock></TextBlock>
+                            <TextBlock>Дата записи: <TextBlock Text="{Binding StartTime}"></TextBlock></TextBlock>
+                            <TextBlock>До начала: <TextBlock Text="{Binding RestTime}"></TextBlock></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>

@@ -54,8 +54,8 @@ namespace WpfApp.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    AddClientToServicePage pg = new AddClientToServicePage();
-                    PageInFrame = pg;
+                    //AddClientToServicePage pg = new AddClientToServicePage();
+                    //PageInFrame = pg;
                 });
             }
         }
