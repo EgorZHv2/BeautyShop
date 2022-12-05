@@ -31,14 +31,21 @@ namespace WpfApp.ViewModels
 
                 if (File.Exists(Path.GetFullPath(Directory.GetCurrentDirectory() + "\\..\\..\\" + "\\Resources\\ServiceImages\\" + s.MainImagePath)))
                 {
-                    model.ImgPath = "\\Resources\\ServiceImages\\" + s.MainImagePath;
+                    model.ImgPath = "..\\..\\Resources\\ServiceImages\\" + s.MainImagePath;
 
                 }
                 else
                 {
-                    model.ImgPath = "\\Resources\\Img\\beauty_logo.png";
+                    model.ImgPath = "..\\..\\Resources\\Img\\beauty_logo.png";
                 }
-
+                //if (!String.IsNullOrEmpty(s.MainImagePath))
+                //{
+                //    model.ImgPath = "..\\..\\Resources\\ServiceImages\\" + s.MainImagePath;
+                //}
+                //else
+                //{
+                //    model.ImgPath = "/Resources/Img/beauty_logo.png";
+                //}
 
 
                 if (s.Discount == 0)

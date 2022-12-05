@@ -10,28 +10,30 @@
     <Window.DataContext>
         <viewmodels:MainWindowViewModel></viewmodels:MainWindowViewModel>
     </Window.DataContext>
+  
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60px"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Image Opacity="0.05"  Grid.Row="1" Grid.RowSpan="2"  Source="/Resources/Img/beauty_logo.png"></Image>
         <StackPanel Background="#e1e4ff" Orientation="Horizontal" Grid.Row="0">
             <Image RenderOptions.BitmapScalingMode="Linear" Margin="5" Source="/Resources/Img/beauty_logo.png"></Image>
             <TextBlock VerticalAlignment="Center" FontFamily="Tahoma" FontSize="20" FontWeight="Bold"  Foreground="#ff4a6d" >Бархатные бровки</TextBlock>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Right">
-            <Button Command="{Binding GoToServicesListPage}" Style="{StaticResource ResourceKey=NavButton}">Услуги</Button>
+            <Button Command="{Binding GoToServicesListPage}" Style="{StaticResource ResourceKey=NavButton}" Click="Button_Click">Услуги</Button>
             <Button Command="{Binding GoToAddServicePage}" Style="{StaticResource ResourceKey=NavButton}">Добавить услугу</Button>
-            <Button Command="{Binding GoToAddClientToServicePage}" Style="{StaticResource ResourceKey=NavButton}">Запись клиента</Button>
+            <Button Command="{Binding GoToAddClientToServicePage}" Style="{StaticResource ResourceKey=NavButton}">Войти как админ</Button>
             <Button Command="{Binding GoToOrdersListPage}" Style="{StaticResource ResourceKey=NavButton}">Ближайшие записи</Button>
         </StackPanel>
 
 
-        <Frame NavigationUIVisibility="Hidden" Grid.Row="1"  Content="{Binding PageInFrame}">
+        <Frame NavigationUIVisibility="Visible" Grid.Row="1"  Content="{Binding PageInFrame}">
 
             </Frame>
-       
-            
+
+        
         
     </Grid>
 </Window>

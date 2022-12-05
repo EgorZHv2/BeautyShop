@@ -21,6 +21,7 @@
             <RowDefinition Height="10*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Image Opacity="0.05"   Grid.Column="1" Grid.RowSpan="3"  Source="/Resources/Img/beauty_logo.png"></Image>
         <TextBlock Style="{StaticResource PageTitle}" VerticalAlignment="Center" Grid.Column="1">Ближайшие записи</TextBlock>
         <ListBox HorizontalAlignment="Center" ItemsSource="{Binding Orders}" Grid.Row="1" Grid.Column="1">
             <ListBox.ItemTemplate>

@@ -22,6 +22,7 @@
             <RowDefinition Height="10*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Image Opacity="0.05"   Grid.RowSpan="3" Grid.ColumnSpan="3"  Source="/Resources/Img/beauty_logo.png"></Image>
         <TextBlock Style="{StaticResource PageTitle}" VerticalAlignment="Center" Grid.Column="1">Список услуг</TextBlock>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Orientation="Vertical">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Orientation="Horizontal">

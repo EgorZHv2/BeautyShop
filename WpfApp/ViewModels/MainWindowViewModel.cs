@@ -24,7 +24,7 @@ namespace WpfApp.ViewModels
         }
         public MainWindowViewModel()
         {
-           
+            PageInFrame = new ServicesListPage();
         }
         public ICommand GoToAddServicePage
         {
@@ -54,8 +54,8 @@ namespace WpfApp.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    //AddClientToServicePage pg = new AddClientToServicePage();
-                    //PageInFrame = pg;
+                    WelcomePage pg = new WelcomePage();
+                    PageInFrame = pg;
                 });
             }
         }
