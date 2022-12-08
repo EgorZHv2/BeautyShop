@@ -160,42 +160,42 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\ServiceImages\122454.png" />
-    <Resource Include="Resources\ServiceImages\96.png" />
-    <Resource Include="Resources\ServiceImages\face.png" />
-    <Resource Include="Resources\ServiceImages\makeup.jpg" />
-    <Resource Include="Resources\ServiceImages\man.png" />
-    <Resource Include="Resources\ServiceImages\mask.jpeg" />
-    <Resource Include="Resources\ServiceImages\piling.jpg" />
-    <Resource Include="Resources\ServiceImages\soliarij.jpg" />
-    <Resource Include="Resources\ServiceImages\брови.png" />
-    <Resource Include="Resources\ServiceImages\Гречишный массаж.jpg" />
-    <Resource Include="Resources\ServiceImages\Декорирование нарощенных ресниц стразами.jpg" />
-    <Resource Include="Resources\ServiceImages\Демакияж.jpg" />
-    <Resource Include="Resources\ServiceImages\Депиляция воском.jpg" />
-    <Resource Include="Resources\ServiceImages\Европейский маникюр.jpg" />
-    <Resource Include="Resources\ServiceImages\ИК-сауна.jpg" />
-    <Resource Include="Resources\ServiceImages\Классический маникюр.png" />
-    <Resource Include="Resources\ServiceImages\Комбинированный маникюр.jpg" />
-    <Resource Include="Resources\ServiceImages\Контурная пластика.jpg" />
-    <Resource Include="Resources\ServiceImages\массаж.jpg" />
-    <Resource Include="Resources\ServiceImages\Мезотерапия.jpg" />
-    <Resource Include="Resources\ServiceImages\Моделирование ресниц.jpg" />
-    <Resource Include="Resources\ServiceImages\ногти.png" />
-    <Resource Include="Resources\ServiceImages\Окрашивание бровей.jpg" />
-    <Resource Include="Resources\ServiceImages\Парафинотерапия.jpg" />
-    <Resource Include="Resources\ServiceImages\Покрытие ногтей гель-лаком.jpg" />
-    <Resource Include="Resources\ServiceImages\Полировка ногтей.jpg" />
-    <Resource Include="Resources\ServiceImages\Прессотерапия.jpg" />
-    <Resource Include="Resources\ServiceImages\Прокол ушей пистолетом.png" />
-    <Resource Include="Resources\ServiceImages\Ресницы.png" />
-    <Resource Include="Resources\ServiceImages\Снятие ресниц.jpg" />
-    <Resource Include="Resources\ServiceImages\Стоун-терапия.jpg" />
-    <Resource Include="Resources\ServiceImages\стрижка.png" />
-    <Resource Include="Resources\ServiceImages\Укрепление ногтей гелем.jpg" />
-    <Resource Include="Resources\ServiceImages\Шугаринг.jpg" />
-    <Resource Include="Resources\ServiceImages\Экспресс SPA.png" />
-    <Resource Include="Resources\ServiceImages\Экспресс-педикюр.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\122454.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\96.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\face.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\makeup.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\man.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\mask.jpeg" />
+    <Resource Include="Resources\Услугисалонакрасоты\piling.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\soliarij.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\брови.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\Гречишный массаж.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Декорирование нарощенных ресниц стразами.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Демакияж.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Депиляция воском.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Европейский маникюр.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\ИК-сауна.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Классический маникюр.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\Комбинированный маникюр.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Контурная пластика.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\массаж.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Мезотерапия.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Моделирование ресниц.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\ногти.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\Окрашивание бровей.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Парафинотерапия.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Покрытие ногтей гель-лаком.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Полировка ногтей.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Прессотерапия.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Прокол ушей пистолетом.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\Ресницы.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\Снятие ресниц.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Стоун-терапия.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\стрижка.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\Укрепление ногтей гелем.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Шугаринг.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\Экспресс SPA.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\Экспресс-педикюр.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Img\beauty_logo.ico" />
@@ -210,10 +210,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\ServiceImages\88740a7b-a7db-4014-9e34-a2db9883accb.png" />
+    <Resource Include="Resources\Услугисалонакрасоты\88740a7b-a7db-4014-9e34-a2db9883accb.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\ServiceImages\f9860f49-3f11-43b0-994e-5accfd9507f8.jpg" />
+    <Resource Include="Resources\Услугисалонакрасоты\f9860f49-3f11-43b0-994e-5accfd9507f8.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="beauty_logo.ico" />

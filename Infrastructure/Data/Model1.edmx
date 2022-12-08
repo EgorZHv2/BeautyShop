@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BeautyDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BeautyDBbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="ID" />
@@ -49,6 +49,18 @@
           <Property Name="Discount" Type="float" />
           <Property Name="MainImagePath" Type="nvarchar" MaxLength="1000" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BeautyDBb.dbo.serviceclientimport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="serviceclientimport">
+          <Key>
+            <PropertyRef Name="Service" />
+            <PropertyRef Name="StartTime" />
+            <PropertyRef Name="Client" />
+          </Key>
+          <Property Name="Service" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Client" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="ServicePhoto">
           <Key>
             <PropertyRef Name="ID" />
@@ -56,16 +68,6 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ServiceID" Type="int" Nullable="false" />
           <Property Name="PhotoPath" Type="nvarchar" MaxLength="1000" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_Client_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
@@ -115,13 +117,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BeautyDBModelStoreContainer">
+        <EntityContainer Name="BeautyDBbModelStoreContainer">
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClientService" EntityType="Self.ClientService" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServicePhoto" EntityType="Self.ServicePhoto" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="serviceclientimport" EntityType="Self.serviceclientimport" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [serviceclientimport].[Service] AS [Service], 
+    [serviceclientimport].[StartTime] AS [StartTime], 
+    [serviceclientimport].[Client] AS [Client]
+    FROM [dbo].[serviceclientimport] AS [serviceclientimport]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Client_Gender" Association="Self.FK_Client_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Client" EntitySet="Client" />
@@ -143,7 +151,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="BeautyDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BeautyDBbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="ID" />
@@ -204,15 +212,15 @@
           <Property Name="PhotoPath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Service" Relationship="Self.FK_ServicePhoto_Service" FromRole="ServicePhoto" ToRole="Service" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="serviceclientimport">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="Service" />
+            <PropertyRef Name="StartTime" />
+            <PropertyRef Name="Client" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Service" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Client" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <Association Name="FK_Client_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
@@ -268,7 +276,7 @@
           <EntitySet Name="Gender" EntityType="Self.Gender" />
           <EntitySet Name="Service" EntityType="Self.Service" />
           <EntitySet Name="ServicePhoto" EntityType="Self.ServicePhoto" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="serviceclientimport" EntityType="Self.serviceclientimport" />
           <AssociationSet Name="FK_Client_Gender" Association="Self.FK_Client_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Client" EntitySet="Client" />
@@ -291,9 +299,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BeautyDBModelStoreContainer" CdmEntityContainer="ApplicationDbContext">
+        <EntityContainerMapping StorageEntityContainer="BeautyDBbModelStoreContainer" CdmEntityContainer="ApplicationDbContext">
           <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="BeautyDBModel.Client">
+            <EntityTypeMapping TypeName="BeautyDBbModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -309,7 +317,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClientService">
-            <EntityTypeMapping TypeName="BeautyDBModel.ClientService">
+            <EntityTypeMapping TypeName="BeautyDBbModel.ClientService">
               <MappingFragment StoreEntitySet="ClientService">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
@@ -320,7 +328,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Gender">
-            <EntityTypeMapping TypeName="BeautyDBModel.Gender">
+            <EntityTypeMapping TypeName="BeautyDBbModel.Gender">
               <MappingFragment StoreEntitySet="Gender">
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -328,7 +336,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Service">
-            <EntityTypeMapping TypeName="BeautyDBModel.Service">
+            <EntityTypeMapping TypeName="BeautyDBbModel.Service">
               <MappingFragment StoreEntitySet="Service">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -341,7 +349,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ServicePhoto">
-            <EntityTypeMapping TypeName="BeautyDBModel.ServicePhoto">
+            <EntityTypeMapping TypeName="BeautyDBbModel.ServicePhoto">
               <MappingFragment StoreEntitySet="ServicePhoto">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
@@ -349,14 +357,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="BeautyDBModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+          <EntitySetMapping Name="serviceclientimport">
+            <EntityTypeMapping TypeName="BeautyDBbModel.serviceclientimport">
+              <MappingFragment StoreEntitySet="serviceclientimport">
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Client" ColumnName="Client" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

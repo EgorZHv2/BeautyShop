@@ -27,17 +27,18 @@ namespace WpfApp.ViewModels
                 
                 model.Discount = s.Discount;
                 model.DurationInMinutes = s.DurationInSeconds / 60;
-                //model.ImgPath = "\\Resources\\ServiceImages\\" + s.MainImagePath;
+                model.ImgPath = "\\Resources\\" + s.MainImagePath;
 
-                if (File.Exists(Path.GetFullPath(Directory.GetCurrentDirectory() + "\\..\\..\\" + "\\Resources\\ServiceImages\\" + s.MainImagePath)))
-                {
-                    model.ImgPath = "..\\..\\Resources\\ServiceImages\\" + s.MainImagePath;
+                //if (File.Exists(Path.GetFullPath(Directory.GetCurrentDirectory() + "\\..\\..\\" + "\\Resources\\" + s.MainImagePath)))
+                //{
+                //    model.ImgPath = "..\\..\\Resources\\ServiceImages\\" + s.MainImagePath;
 
-                }
-                else
-                {
-                    model.ImgPath = "..\\..\\Resources\\Img\\beauty_logo.png";
-                }
+                //}
+                //else
+                //{
+                //    model.ImgPath = "..\\..\\Resources\\Img\\beauty_logo.png";
+                //}
+
                 //if (!String.IsNullOrEmpty(s.MainImagePath))
                 //{
                 //    model.ImgPath = "..\\..\\Resources\\ServiceImages\\" + s.MainImagePath;
