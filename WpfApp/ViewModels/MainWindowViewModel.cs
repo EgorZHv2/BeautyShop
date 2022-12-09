@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WpfApp.Commands;
+using WpfApp.States;
 using WpfApp.ViewModels;
 using WpfApp.Views.Pages;
 
@@ -32,8 +34,16 @@ namespace WpfApp.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    AddServicePage pg = new AddServicePage();
-                    PageInFrame = pg;
+                    if (IdentityState.Role == "Admin")
+                    {
+                        AddServicePage pg = new AddServicePage();
+                        PageInFrame = pg;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Сначала войдите как админ");
+                    }
+                    
                 });
             }
         }
@@ -56,6 +66,7 @@ namespace WpfApp.ViewModels
                 {
                     WelcomePage pg = new WelcomePage();
                     PageInFrame = pg;
+
                 });
             }
         }
@@ -65,8 +76,16 @@ namespace WpfApp.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                   OrdersListPage pg = new OrdersListPage();
-                    PageInFrame = pg;
+                    if (IdentityState.Role == "Admin")
+                    {
+                        OrdersListPage pg = new OrdersListPage();
+                        PageInFrame = pg;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Сначала войдите как админ");
+                    }
+                    
                 });
             }
         }

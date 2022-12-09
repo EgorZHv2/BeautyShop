@@ -51,10 +51,15 @@
                 <TextBox Width="500px"></TextBox>
             </StackPanel>
         </StackPanel>
-        <ListBox  HorizontalAlignment="Stretch" ItemsSource="{Binding Services}" Grid.Row="2" Grid.Column="1">
+        <ListBox SelectedItem="{Binding SelectedService}" HorizontalAlignment="Stretch" ItemsSource="{Binding Services}" Grid.Row="2" Grid.Column="1">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="IsSelected" Value="True"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
                 </Style>
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
@@ -83,7 +88,7 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Style="{StaticResource ListButton}">Редактировать</Button>
-                                    <Button Style="{StaticResource ListButton}">Удалить</Button>
+                                    <Button Command="{Binding DataContext.DeleteService, RelativeSource={RelativeSource AncestorType=ListBox}}"   Style="{StaticResource ListButton}">Удалить</Button>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using WpfApp.Commands;
 using WpfApp.Models;
@@ -47,10 +48,12 @@ namespace WpfApp.ViewModels
                     };
                     string filename = Guid.NewGuid().ToString() + Path.GetExtension(ImgPath);
                    
-                    File.Copy(ImgPath, Path.GetFullPath(Directory.GetCurrentDirectory() + "\\..\\..\\" + "\\Resources\\ServiceImages\\" + filename));
+                    File.Copy(ImgPath, Path.GetFullPath(Directory.GetCurrentDirectory() + "\\..\\..\\" + "\\Resources\\Услугисалонакрасоты\\" + filename));
                     newservice.MainImagePath = filename;
                     ApplicationDbContext.GetContext().Service.Add(newservice);
                     ApplicationDbContext.GetContext().SaveChanges();
+                    MessageBox.Show("Услуга добавлена");
+                    
                 });
             }
         }
