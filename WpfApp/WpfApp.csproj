@@ -92,6 +92,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Windows\EditServiceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -107,6 +111,7 @@
     <Compile Include="States\IdentityState.cs" />
     <Compile Include="ViewModels\AddServicePageViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\EditServiceWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationPageViewModel.cs" />
     <Compile Include="ViewModels\OrdersListPageViewModel.cs" />
@@ -126,6 +131,9 @@
     </Compile>
     <Compile Include="Views\Windows\AddClientToServiceWindow.xaml.cs">
       <DependentUpon>AddClientToServiceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\EditServiceWindow.xaml.cs">
+      <DependentUpon>EditServiceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

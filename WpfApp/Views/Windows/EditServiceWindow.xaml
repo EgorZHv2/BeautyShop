@@ -1,0 +1,44 @@
+﻿<Window x:Class="WpfApp.Views.Windows.EditServiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp.Views.Windows"
+        mc:Ignorable="d"
+        Title="EditServiceWindow" Height="450" Width="800">
+    <Grid>
+        <Image Opacity="0.05"  Grid.ColumnSpan="2" Grid.RowSpan="3"  Source="/Resources/Img/beauty_logo.png"></Image>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Style="{StaticResource PageTitle}">Изменение услуги</TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0 0 50 0">
+                    <TextBlock Style="{StaticResource InputName}" Text="Название" />
+                    <TextBlock Style="{StaticResource InputName}" Text="Цена" />
+                    <TextBlock Style="{StaticResource InputName}" Text="Продолжительность в минутах" />
+                    <TextBlock Style="{StaticResource InputName}" Text="Описание" />
+                    <TextBlock Style="{StaticResource InputName}" Text="Скидка" />
+                    <TextBlock Style="{StaticResource InputName}" Text="Главное изображение" />
+
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox Text="{Binding Service.Title}" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox Text="{Binding Service.Cost}" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox  Text="{Binding Service.DurationInSeconds}" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox  Text="{Binding Service.Description}" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox  Text="{Binding Service.Discount}" Style="{StaticResource InputBox}"></TextBox>
+                    <TextBox  Text="{Binding ImgPath}" Style="{StaticResource InputBox}"></TextBox>
+                    <Button Style="{StaticResource ListButton}" Command="{Binding AddImage}">Выбрать изображение</Button>
+                </StackPanel>
+
+            </Grid>
+
+            <Button Command="{Binding CreateService}" Style="{StaticResource NavButton}">Изменить</Button>
+
+        </StackPanel>
+    </Grid>
+</Window>

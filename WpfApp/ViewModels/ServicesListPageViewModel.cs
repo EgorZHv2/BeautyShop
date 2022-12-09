@@ -9,9 +9,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Navigation;
 using WpfApp.Commands;
 using WpfApp.Models;
-
+using WpfApp.States;
+using WpfApp.Views.Pages;
+using WpfApp.Views.Windows;
 
 namespace WpfApp.ViewModels
 {
@@ -43,7 +46,7 @@ namespace WpfApp.ViewModels
                 model.Id = s.ID;
 
                 model.Title = s.Title;
-
+                model.Description = s.Description;
                 model.Discount = s.Discount;
                 model.DurationInMinutes = s.DurationInSeconds / 60;
                 model.ImgPath = "\\Resources\\" + s.MainImagePath;
@@ -102,7 +105,32 @@ namespace WpfApp.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                   
+                    if (IdentityState.Role == "Admin")
+                    {
+                        EditServiceWindow window = new EditServiceWindow();
+                        EditServiceWindowViewModel viewmodel = new EditServiceWindowViewModel();
+                        viewmodel.Service = new CreateServiceModel()
+                        {
+                            Id = SelectedService.Id,
+                            Title = SelectedService.Title,
+                            Description = SelectedService.Description,
+                            Cost = SelectedService.Cost,
+                            Discount = SelectedService.Discount,
+                            DurationInSeconds = SelectedService.DurationInMinutes,
+                            ImgPath = SelectedService.ImgPath
+                        };
+                        viewmodel.ImgPath = SelectedService.ImgPath;
+                        window.DataContext = viewmodel;
+
+                        window.ShowDialog();
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Сначала войдите как админ");
+                    }
+                    
+
 
                 });
             }
@@ -113,10 +141,18 @@ namespace WpfApp.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    var service = ApplicationDbContext.GetContext().Service.Find(SelectedService.Id);
-                    ApplicationDbContext.GetContext().Service.Remove(service);
-                    ApplicationDbContext.GetContext().SaveChanges();
-                    LoadData();
+                    if (IdentityState.Role == "Admin")
+                    {
+                        var service = ApplicationDbContext.GetContext().Service.Find(SelectedService.Id);
+                        ApplicationDbContext.GetContext().Service.Remove(service);
+                        ApplicationDbContext.GetContext().SaveChanges();
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Сначала войдите как админ");
+                    }
+                   
 
                 });
             }

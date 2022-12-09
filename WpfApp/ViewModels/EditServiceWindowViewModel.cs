@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,9 @@ using WpfApp.Models;
 
 namespace WpfApp.ViewModels
 {
-    internal class AddServicePageViewModel:BaseViewModel
+    internal class EditServiceWindowViewModel:BaseViewModel
     {
+        public Action CloseAction { get; set; }
         private CreateServiceModel service = new CreateServiceModel();
         public CreateServiceModel Service
         {
@@ -29,8 +31,11 @@ namespace WpfApp.ViewModels
         public string ImgPath
         {
             get { return imgPath; }
-            set { imgPath = value;
-            OnPropertyChanged();}
+            set
+            {
+                imgPath = value;
+                OnPropertyChanged();
+            }
         }
         public ICommand CreateService
         {
@@ -44,17 +49,18 @@ namespace WpfApp.ViewModels
                         Discount = service.Discount,
                         DurationInSeconds = service.DurationInSeconds * 60,
                         ID = service.Id,
-                        Title = service.Title,
-                        Description = service.Description
+                        Title = service.Title
                     };
                     string filename = Guid.NewGuid().ToString() + Path.GetExtension(ImgPath);
-                   
-                    File.Copy(ImgPath, Path.GetFullPath(Directory.GetCurrentDirectory() + "\\..\\..\\" + "\\Resources\\Услугисалонакрасоты\\" + filename));
+
+                    //File.Copy(ImgPath, Path.GetFullPath(Directory.GetCurrentDirectory() + "\\..\\..\\" + "\\Resources\\Услугисалонакрасоты\\" + filename));
                     newservice.MainImagePath = filename;
-                    ApplicationDbContext.GetContext().Service.Add(newservice);
+                    ApplicationDbContext.GetContext().Service.AddOrUpdate(newservice);
                     ApplicationDbContext.GetContext().SaveChanges();
-                    MessageBox.Show("Услуга добавлена");
+    
+                    MessageBox.Show("Услуга изменена");
                     
+
                 });
             }
         }
@@ -68,10 +74,9 @@ namespace WpfApp.ViewModels
                     openFileDialog.Filter = "Image Files(*.JPEP;*.JPG;*.PNG)|*.jpeg;*.jpg;*.png";
                     openFileDialog.ShowDialog();
                     ImgPath = openFileDialog.FileName;
-                    
+
                 });
             }
         }
     }
-
 }

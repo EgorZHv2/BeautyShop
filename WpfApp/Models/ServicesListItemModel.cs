@@ -14,7 +14,7 @@ namespace WpfApp.Models
         public string Title { get; set; }
         public decimal Cost { get; set; }
         public decimal СrossedCost { get; set; }
-     
+        public string Description { get; set; }
         public Nullable<double> Discount { get; set; }
         public int DurationInMinutes { get; set; }
         public Visibility DiscountVisibility { get; set; }

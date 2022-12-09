@@ -87,7 +87,7 @@
                                     <TextBlock Visibility="{Binding DiscountVisibility}" Text="%"></TextBlock>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource ListButton}">Редактировать</Button>
+                                    <Button Command="{Binding DataContext.EditService, RelativeSource={RelativeSource AncestorType=ListBox}}" Style="{StaticResource ListButton}">Редактировать</Button>
                                     <Button Command="{Binding DataContext.DeleteService, RelativeSource={RelativeSource AncestorType=ListBox}}"   Style="{StaticResource ListButton}">Удалить</Button>
                                 </StackPanel>
                             </StackPanel>
