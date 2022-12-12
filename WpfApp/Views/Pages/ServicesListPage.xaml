@@ -89,6 +89,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Button Command="{Binding DataContext.EditService, RelativeSource={RelativeSource AncestorType=ListBox}}" Style="{StaticResource ListButton}">Редактировать</Button>
                                     <Button Command="{Binding DataContext.DeleteService, RelativeSource={RelativeSource AncestorType=ListBox}}"   Style="{StaticResource ListButton}">Удалить</Button>
+                                    <Button Command="{Binding DataContext.AddClientToService, RelativeSource={RelativeSource AncestorType=ListBox}}"   Style="{StaticResource ListButton}">Записать клинта на услугу</Button>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>

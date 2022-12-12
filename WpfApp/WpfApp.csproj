@@ -109,6 +109,7 @@
     <Compile Include="Models\OrdersListModel.cs" />
     <Compile Include="Models\ServicesListItemModel.cs" />
     <Compile Include="States\IdentityState.cs" />
+    <Compile Include="ViewModels\AddClientToServiceWindowViewModel.cs" />
     <Compile Include="ViewModels\AddServicePageViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\EditServiceWindowViewModel.cs" />

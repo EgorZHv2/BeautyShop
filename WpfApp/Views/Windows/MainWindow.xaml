@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp.Views.Windows" xmlns:viewmodels="clr-namespace:WpfApp.ViewModels"
         mc:Ignorable="d"
         Icon="/Resources/Img/beauty_logo.ico"
-        Title="Бархатные бровки" Height="450" MinHeight="450" MinWidth="800" Width="800">
+        Title="Бархатные бровки" MinHeight="600" MinWidth="800" >
     <Window.DataContext>
         <viewmodels:MainWindowViewModel></viewmodels:MainWindowViewModel>
     </Window.DataContext>

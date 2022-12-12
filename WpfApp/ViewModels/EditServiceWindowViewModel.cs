@@ -43,6 +43,11 @@ namespace WpfApp.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
+                    if(service.DurationInSeconds < 0 || service.DurationInSeconds > 240)
+                    {
+                        MessageBox.Show("Длительность должна быть меньше 4х часов и больше нуля");
+                        return;
+                    }
                     Service newservice = new Service()
                     {
                         Cost = service.Cost,

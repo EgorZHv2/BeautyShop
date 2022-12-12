@@ -114,7 +114,7 @@ namespace WpfApp.ViewModels
                             Id = SelectedService.Id,
                             Title = SelectedService.Title,
                             Description = SelectedService.Description,
-                            Cost = SelectedService.Cost,
+                            Cost = SelectedService.СrossedCost,
                             Discount = SelectedService.Discount,
                             DurationInSeconds = SelectedService.DurationInMinutes,
                             ImgPath = SelectedService.ImgPath
@@ -153,6 +153,32 @@ namespace WpfApp.ViewModels
                         MessageBox.Show("Сначала войдите как админ");
                     }
                    
+
+                });
+            }
+        }
+
+        public ICommand AddClientToService
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    if (IdentityState.Role == "Admin")
+                    {
+                        AddClientToServiceWindow window = new AddClientToServiceWindow();
+                        AddClientToServiceWindowViewModel viewmodel = new AddClientToServiceWindowViewModel();
+                        Service service = ApplicationDbContext.GetContext().Service.Find(SelectedService.Id);
+                        service.DurationInSeconds /= 60;
+                        viewmodel.Service = service;
+                        window.DataContext = viewmodel;
+                        window.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Сначала войдите как админ");
+                    }
+
 
                 });
             }

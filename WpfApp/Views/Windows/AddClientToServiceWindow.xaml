@@ -3,25 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp.Views.Windows"
+        xmlns:local="clr-namespace:WpfApp.Views.Windows" xmlns:viewmodels="clr-namespace:WpfApp.ViewModels"
         mc:Ignorable="d"
         Title="AddClientToServiceWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <viewmodels:AddClientToServiceWindowViewModel></viewmodels:AddClientToServiceWindowViewModel>
+    </Window.DataContext>
+   
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Style="{StaticResource PageTitle}">Запись на услугу</TextBlock>
-            <TextBlock Margin="0 5">Наименование услуги: <TextBlock>dddasdasdasdas</TextBlock></TextBlock>
-            <TextBlock Margin="0 5">Длительность: <TextBlock>25 мин.</TextBlock></TextBlock>
-            <ComboBox Margin="0 5" Name="clients" VerticalAlignment="Top">
-                <ComboBoxItem IsSelected="True">Клиент</ComboBoxItem>
-                <TextBlock>Иванов Иван Иванович</TextBlock>
-                <TextBlock>Huawai Nexus 6P</TextBlock>
-                <TextBlock>iPhone 6S</TextBlock>
-                <TextBlock>iPhone 6S Plus</TextBlock>
-                <TextBlock>Microsoft Lumia 950</TextBlock>
+            <TextBlock  Style="{StaticResource PageTitle}">Запись на услугу</TextBlock>
+            <TextBlock  Margin="0 5">Наименование услуги: <TextBlock Text="{Binding Service.Title}"></TextBlock></TextBlock>
+            <TextBlock Margin="0 5">Длительность: <TextBlock Text="{Binding Service.DurationInSeconds}"></TextBlock></TextBlock>
+            <ComboBox SelectedItem="{Binding Client}" ItemsSource="{Binding Clients}" Margin="0 5" Name="clients" VerticalAlignment="Top">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FirstName}" Margin="5"></TextBlock>
+                            <TextBlock Text="{Binding LastName}" Margin="5"></TextBlock>
+                            <TextBlock Text="{Binding Patronymic}" Margin="5"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
-            <TextBox Margin="0 5"></TextBox>
-            <DatePicker Margin="0 10" Name="datePicker1" IsDropDownOpen="True" SelectedDateFormat="Short" />
-            <Button Style="{StaticResource NavButton}">Добавить</Button>
+            
+            <DatePicker Text="{Binding Startdate}" Margin="0 10"  SelectedDateFormat="Short" />
+            <Button Command="{Binding AddClientsToService}" Style="{StaticResource NavButton}">Добавить</Button>
         </StackPanel>
     </Grid>
 </Window>
