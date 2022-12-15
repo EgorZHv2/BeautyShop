@@ -106,8 +106,10 @@
     </Compile>
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Models\CreateServiceModel.cs" />
+    <Compile Include="Models\FilterModel.cs" />
     <Compile Include="Models\OrdersListModel.cs" />
     <Compile Include="Models\ServicesListItemModel.cs" />
+    <Compile Include="Models\SortModel.cs" />
     <Compile Include="States\IdentityState.cs" />
     <Compile Include="ViewModels\AddClientToServiceWindowViewModel.cs" />
     <Compile Include="ViewModels\AddServicePageViewModel.cs" />
